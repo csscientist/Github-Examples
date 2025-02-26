@@ -1,0 +1,16 @@
+name: Greetings  
+
+on: [pull_request_target,issues]
+
+jobs:
+  greetings:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+    - uses: actions/first-interactions@v1
+      with:
+        repo-toke: ${{ secrets.GITHUB_TOKEN }}
+        issue-message: "Message that will be displayed on users' first issue"
+        pr-message: "Message that will be displayed on users' first pull request"
